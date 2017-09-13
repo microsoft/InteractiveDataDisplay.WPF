@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2D34544C-2DF2-4B20-A43A-6C8D2DF3DD82}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InteractiveDataDisplay.WPF</RootNamespace>
+    <AssemblyName>InteractiveDataDisplay.WPF</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Maps.MapControl.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Reactive.Core, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\System.Reactive.Core.3.1.1\lib\net45\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\System.Reactive.Interfaces.3.1.1\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\System.Reactive.Linq.3.1.1\lib\net45\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\System.Reactive.PlatformServices.3.1.1\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\sln\packages\System.Reactive.Windows.Threading.3.1.1\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Axes\Axis.cs" />
+    <Compile Include="Axes\AxisGrid.cs" />
+    <Compile Include="Axes\AxisOrientation.cs" />
+    <Compile Include="Axes\ILabelProvider.cs" />
+    <Compile Include="Axes\LabelProvider.cs" />
+    <Compile Include="Axes\MinorTicksProvider.cs" />
+    <Compile Include="Axes\PlotAxis.cs" />
+    <Compile Include="Axes\RoundHelper.cs" />
+    <Compile Include="Axes\TicksProvider.cs" />
+    <Compile Include="Chart.cs" />
+    <Compile Include="Common\ArrayHelper.cs" />
+    <Compile Include="Common\DataRect.cs" />
+    <Compile Include="Common\IPalette.cs" />
+    <Compile Include="Common\MathHelper.cs" />
+    <Compile Include="Common\Palette.cs" />
+    <Compile Include="Common\Range.cs" />
+    <Compile Include="Figure.cs" />
+    <Compile Include="Legend\CountToVisibilityConverter.cs" />
+    <Compile Include="Legend\Legend.cs" />
+    <Compile Include="Legend\LegendItemsPanel.cs" />
+    <Compile Include="Legend\SizeLegendControl.cs" />
+    <Compile Include="Navigation\KeyboardNavigation.cs" />
+    <Compile Include="Navigation\MouseNavigation.cs" />
+    <Compile Include="Palette\Palette.Converters.cs" />
+    <Compile Include="Palette\PaletteControl.cs" />
+    <Compile Include="PlotBase.cs" />
+    <Compile Include="PlotCompositionChange.cs" />
+    <Compile Include="Plots\Base\BackgroundBitmapRenderer.cs" />
+    <Compile Include="Plots\Base\Plot.cs" />
+    <Compile Include="Plots\BingMaps\BingMapsChart.cs" />
+    <Compile Include="Plots\Heatmap\HeatmapBuilder.cs" />
+    <Compile Include="Plots\Heatmap\HeatmapGraph.cs" />
+    <Compile Include="Plots\Heatmap\HeatmapTooltipLayer.cs" />
+    <Compile Include="Plots\Line\LineGraph.cs" />
+    <Compile Include="Plots\Markers\CartesianMarkerGraph.cs" />
+    <Compile Include="Plots\Markers\DataSeries.cs" />
+    <Compile Include="Plots\Markers\DynamicMarkerViewModel.cs" />
+    <Compile Include="Plots\Markers\GenericDataSeries.cs" />
+    <Compile Include="Plots\Markers\MarkerGraph.Converters.cs" />
+    <Compile Include="Plots\Markers\MarkerGraph.cs" />
+    <Compile Include="Plots\Markers\MarkerGraphsWithTemplates.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transforms\DataTransforms.cs" />
+    <Compile Include="VerticalContentControl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Legend\DefaultTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Plots\Markers\MarkerTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

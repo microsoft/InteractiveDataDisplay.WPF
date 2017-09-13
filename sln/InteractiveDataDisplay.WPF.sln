@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteractiveDataDisplay.WPF", "..\src\InteractiveDataDisplay.WPF.csproj", "{2D34544C-2DF2-4B20-A43A-6C8D2DF3DD82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{6E637A98-DA68-40CF-B194-56CEB99A57A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeatmapSample", "..\samples\HeatmapSample\HeatmapSample.csproj", "{A59C204A-01D9-41A4-BE67-64ECDB991560}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkersSample", "..\samples\MarkersSample\MarkersSample.csproj", "{4BEA4B4C-5B83-4FD7-B9BF-3AE4F1CC571F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineGraphSample", "..\samples\LineGraphSample\LineGraphSample.csproj", "{284A7617-B70F-4A4A-B73A-1A8088B75926}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarChartSample", "..\samples\BarChartSample\BarChartSample.csproj", "{F36872BF-8818-4019-A207-2B381C33C370}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingMapsSample", "..\samples\BingMapsSample\BingMapsSample.csproj", "{C724F25D-6F77-48C0-A791-28E34E6B0F0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncGraphsSample", "..\samples\SyncGraphsSample\SyncGraphsSample.csproj", "{0C4C6C54-F253-4FD2-8B38-75E476882A4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D34544C-2DF2-4B20-A43A-6C8D2DF3DD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D34544C-2DF2-4B20-A43A-6C8D2DF3DD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D34544C-2DF2-4B20-A43A-6C8D2DF3DD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D34544C-2DF2-4B20-A43A-6C8D2DF3DD82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A59C204A-01D9-41A4-BE67-64ECDB991560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A59C204A-01D9-41A4-BE67-64ECDB991560}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A59C204A-01D9-41A4-BE67-64ECDB991560}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A59C204A-01D9-41A4-BE67-64ECDB991560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BEA4B4C-5B83-4FD7-B9BF-3AE4F1CC571F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BEA4B4C-5B83-4FD7-B9BF-3AE4F1CC571F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BEA4B4C-5B83-4FD7-B9BF-3AE4F1CC571F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BEA4B4C-5B83-4FD7-B9BF-3AE4F1CC571F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{284A7617-B70F-4A4A-B73A-1A8088B75926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{284A7617-B70F-4A4A-B73A-1A8088B75926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{284A7617-B70F-4A4A-B73A-1A8088B75926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{284A7617-B70F-4A4A-B73A-1A8088B75926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F36872BF-8818-4019-A207-2B381C33C370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F36872BF-8818-4019-A207-2B381C33C370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F36872BF-8818-4019-A207-2B381C33C370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F36872BF-8818-4019-A207-2B381C33C370}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C724F25D-6F77-48C0-A791-28E34E6B0F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C724F25D-6F77-48C0-A791-28E34E6B0F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C724F25D-6F77-48C0-A791-28E34E6B0F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C724F25D-6F77-48C0-A791-28E34E6B0F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C4C6C54-F253-4FD2-8B38-75E476882A4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C4C6C54-F253-4FD2-8B38-75E476882A4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C4C6C54-F253-4FD2-8B38-75E476882A4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C4C6C54-F253-4FD2-8B38-75E476882A4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A59C204A-01D9-41A4-BE67-64ECDB991560} = {6E637A98-DA68-40CF-B194-56CEB99A57A0}
+		{4BEA4B4C-5B83-4FD7-B9BF-3AE4F1CC571F} = {6E637A98-DA68-40CF-B194-56CEB99A57A0}
+		{284A7617-B70F-4A4A-B73A-1A8088B75926} = {6E637A98-DA68-40CF-B194-56CEB99A57A0}
+		{F36872BF-8818-4019-A207-2B381C33C370} = {6E637A98-DA68-40CF-B194-56CEB99A57A0}
+		{C724F25D-6F77-48C0-A791-28E34E6B0F0C} = {6E637A98-DA68-40CF-B194-56CEB99A57A0}
+		{0C4C6C54-F253-4FD2-8B38-75E476882A4B} = {6E637A98-DA68-40CF-B194-56CEB99A57A0}
+	EndGlobalSection
+EndGlobal

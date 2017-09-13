@@ -1,0 +1,19 @@
+﻿<Window x:Class="BingMapsSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BingMapsSample"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        xmlns:d3="clr-namespace:InteractiveDataDisplay.WPF;assembly=InteractiveDataDisplay.WPF"
+        mc:Ignorable="d"
+        Title="Bing map" Height="600" Width="800">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <m:Map Mode="Road" Name="bingmap">
+            <d3:BingMapsPlot Name="plot">
+                <d3:CircleMarkerGraph Name="markers" ColorDescription="Crop density" Size="6" YDataTransform="{Binding YDataTransform, ElementName=plot}" ClipToBounds="False" />
+            </d3:BingMapsPlot>
+        </m:Map>
+    </Grid>
+</Window>

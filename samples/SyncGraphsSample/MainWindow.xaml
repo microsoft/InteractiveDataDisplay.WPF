@@ -1,0 +1,59 @@
+﻿<Window x:Class="SyncGraphsSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d3="clr-namespace:InteractiveDataDisplay.WPF;assembly=InteractiveDataDisplay.WPF"
+        xmlns:local="clr-namespace:SyncGraphsSample"
+        mc:Ignorable="d"
+        Title="Sync graphs" Height="600" Width="800">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="4" Text="Syncronized figures sample" TextAlignment="Center" FontSize="18" Margin="5"/>
+
+        <d3:Figure x:Name="leftPlotter" Grid.Row="1" Grid.Column="1" PlotOriginY="{Binding PlotOriginY,ElementName=centerPlotter,Mode=TwoWay}" PlotHeight="{Binding PlotHeight,ElementName=centerPlotter,Mode=TwoWay}">
+            <d3:PlotAxis AxisOrientation="Left" d3:Figure.Placement="Left"/>
+            <d3:PlotAxis AxisOrientation="Top" d3:Figure.Placement="Top"/>
+            <d3:CircleMarkerGraph x:Name="circles"/>
+            <d3:MouseNavigation/>
+            <Border BorderThickness="0.5" BorderBrush="Black"/>
+        </d3:Figure>
+
+        <d3:Figure x:Name="centerPlotter" Grid.Column="3" Grid.Row="1">
+            <d3:PlotAxis AxisOrientation="Right"  d3:Figure.Placement="Right"/>
+            <d3:PlotAxis AxisOrientation="Top" d3:Figure.Placement="Top"/>
+            <d3:LineGraph x:Name="lineGraph1"/>
+            <d3:MouseNavigation/>
+            <Border BorderThickness="0.5" BorderBrush="Black"/>
+        </d3:Figure>
+
+        <d3:Figure x:Name="bottomPlotter" Grid.Column="3" Grid.Row="3" PlotOriginX="{Binding PlotOriginX,ElementName=centerPlotter,Mode=TwoWay}" PlotWidth="{Binding PlotWidth,ElementName=centerPlotter,Mode=TwoWay}">
+            <d3:PlotAxis AxisOrientation="Right"  d3:Figure.Placement="Right"/>
+            <d3:PlotAxis AxisOrientation="Bottom"  d3:Figure.Placement="Bottom"/>
+            <d3:MouseNavigation/>
+            <d3:BarGraph x:Name="barGraph"/>
+            <Border BorderThickness="0.5" BorderBrush="Black"/>
+        </d3:Figure>
+
+        <ContentControl Grid.Column="1" Grid.Row="3" VerticalContentAlignment="Center" 
+                        HorizontalContentAlignment="Center" Margin="20,20,20,20">
+            <TextBlock FontSize="14" TextWrapping="Wrap" TextAlignment="Center" >These three Charts have shared axes. Two of the share
+            vertical axis, two - horizontal. Navigate in one plot and see how other is changed. This is done purely in 
+            XAML.</TextBlock>
+        </ContentControl>
+    </Grid>
+</Window>

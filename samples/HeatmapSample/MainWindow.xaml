@@ -1,0 +1,14 @@
+﻿<Window x:Class="HeatmapSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d3="clr-namespace:InteractiveDataDisplay.WPF;assembly=InteractiveDataDisplay.WPF"
+        Title="Heatmap" Height="600" Width="800">
+    <Grid>
+        <d3:Chart>
+            <d3:Chart.Title>
+                <TextBlock FontSize="18" Margin="0,5,0,5">Heatmap sample</TextBlock>
+            </d3:Chart.Title>
+            <d3:HeatmapGraph x:Name="heatmap" Palette="Yellow,Blue,Orange"/>
+        </d3:Chart>
+    </Grid>
+</Window>
