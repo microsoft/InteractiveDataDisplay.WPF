@@ -3,6 +3,13 @@ Interactive Data Display for WPF
 
 Interactive Data Display for WPF is a set of controls for adding interactive visualization of dynamic data to your application. It allows to create line graphs, bubble charts, heat maps and other complex 2D plots which are very common in scientific software. Interactive Data Display for WPF integrates well with Bing Maps control to show data on a geographic map in latitude/longitude coordinates. The controls can also be operated programmatically.
 
+How to install
+----------
+The IDD for WPF can be [installed from NuGet](https://www.nuget.org/packages/InteractiveDataDisplay.WPF/):
+```
+PM > Install-Package InteractiveDataDisplay.WPF -Version 1.0.0
+```
+
 How to use
 ----------
 Drawing with Interactive Data Display is easy. 
