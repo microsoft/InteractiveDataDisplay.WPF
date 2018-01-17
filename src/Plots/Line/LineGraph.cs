@@ -32,7 +32,7 @@ namespace InteractiveDataDisplay.WPF
             set { SetValue(PointsProperty, value); }
         }
         
-        private static void callback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void PointsPropertyChangedHandler(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             LineGraph linePlot = (LineGraph)d;
             if (linePlot != null)
@@ -59,7 +59,7 @@ namespace InteractiveDataDisplay.WPF
         }
         static LineGraph()
         {
-            PointsProperty.OverrideMetadata(typeof(LineGraph), new PropertyMetadata(new PointCollection(), callback) );
+            PointsProperty.OverrideMetadata(typeof(LineGraph), new PropertyMetadata(new PointCollection(), PointsPropertyChangedHandler) );
         }
 
         /// <summary>
