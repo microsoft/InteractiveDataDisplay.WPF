@@ -31,20 +31,15 @@ namespace InteractiveDataDisplay.WPF
             get { return (PointCollection)GetValue(PointsProperty); }
             set { SetValue(PointsProperty, value); }
         }
-
-        /// <summary>
-        /// Identifies <see cref="Points"/> dependecy property
-        /// </summary>
-        public static new readonly DependencyProperty PointsProperty =
-            DependencyProperty.Register("Points", typeof(PointCollection), typeof(LineGraph), new PropertyMetadata(new PointCollection(),
-                (o, e) =>
-                {
-                    LineGraph linePlot = (LineGraph)o;
-                    if (linePlot != null)
-                    {
-                        InteractiveDataDisplay.WPF.Plot.SetPoints(linePlot.polyline, (PointCollection)e.NewValue);
-                    }
-                }));
+        
+        private static void PointsPropertyChangedHandler(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            LineGraph linePlot = (LineGraph)d;
+            if (linePlot != null)
+            {
+                InteractiveDataDisplay.WPF.Plot.SetPoints(linePlot.polyline, (PointCollection)e.NewValue);
+            }
+        }
 
         /// <summary>
         /// Initializes a new instance of <see cref="LineGraph"/> class.
@@ -61,6 +56,10 @@ namespace InteractiveDataDisplay.WPF
             BindingOperations.SetBinding(this, PlotBase.PaddingProperty, new Binding("StrokeThickness") { Source = this, Converter = new LineGraphThicknessConverter() });
 
             Children.Add(polyline);
+        }
+        static LineGraph()
+        {
+            PointsProperty.OverrideMetadata(typeof(LineGraph), new PropertyMetadata(new PointCollection(), PointsPropertyChangedHandler) );
         }
 
         /// <summary>
