@@ -100,6 +100,7 @@ namespace InteractiveDataDisplay.WPF
         /// <summary>Converts 2D array of floats to 2D array of doubles</summary>
         /// <param name="array">2D array of float</param>
         /// <returns>2D array of same dimensions but with double elements</returns>
+        [CLSCompliantAttribute(false)]
         public static double[,] ToDoubleArray(this float[,] array) 
         {
             if (array == null)
@@ -116,6 +117,7 @@ namespace InteractiveDataDisplay.WPF
         /// <summary>Converts 2D array of 32-bit integers to 2D array of doubles</summary>
         /// <param name="array">2D array of 32-bit integers</param>
         /// <returns>2D array of same dimensions but with double elements</returns>
+        [CLSCompliantAttribute(false)]
         public static double[,] ToDoubleArray(this int[,] array)
         {
             if (array == null)
@@ -132,6 +134,7 @@ namespace InteractiveDataDisplay.WPF
         /// <summary>Converts 2D array of booleans to 2D array of doubles where true maps to 1, false maps to 0</summary>
         /// <param name="array">2D array of booleans</param>
         /// <returns>2D array of same dimensions but with double elements</returns>
+        [CLSCompliantAttribute(false)]
         public static double[,] ToDoubleArray(this bool[,] array)
         {
             if (array == null)
