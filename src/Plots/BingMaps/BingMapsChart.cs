@@ -95,6 +95,7 @@ namespace InteractiveDataDisplay.WPF
             }
         }
 
+        [CLSCompliantAttribute(false)]
         public Map GetParentMap ()
         {
             return this.Tag as Map;

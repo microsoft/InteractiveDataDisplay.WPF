@@ -15,7 +15,7 @@ namespace InteractiveDataDisplay.WPF
     /// </summary>
     [ContentProperty("Content")]
     [Description("Ready to use figure")]
-    public sealed class Chart : ContentControl
+    public class Chart : ContentControl
     {
         /// <summary>
         /// Initializes a new instance of <see cref="Chart"/> class.
