@@ -189,9 +189,9 @@ namespace InteractiveDataDisplay.WPF
                     for (int j = 0; j < height; j++)
                     {
                         pixels[(i << 2) + 3 + j * stride] = color.A;
-                        pixels[(i << 2) + 2 + j * stride] = color.B;
+                        pixels[(i << 2) + 2 + j * stride] = color.R;
                         pixels[(i << 2) + 1 + j * stride] = color.G;
-                        pixels[(i << 2) + j * stride] = color.R;
+                        pixels[(i << 2) + j * stride] = color.B;
                     }
                 }
             }
