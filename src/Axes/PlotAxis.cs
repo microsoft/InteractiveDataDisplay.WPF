@@ -30,7 +30,6 @@ namespace InteractiveDataDisplay.WPF
             DefaultStyleKey = typeof(PlotAxis);
             Loaded += PlotAxisLoaded;
             Unloaded += PlotAxisUnloaded;
-            Foreground = new SolidColorBrush(Colors.Black);
         }
 
         private void PlotAxisUnloaded(object sender, RoutedEventArgs e)
