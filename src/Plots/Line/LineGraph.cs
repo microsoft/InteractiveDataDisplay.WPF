@@ -211,6 +211,50 @@ namespace InteractiveDataDisplay.WPF
             }
         }
         #endregion
+
+        #region StrokeDashArray
+
+        private static DoubleCollection EmptyDoubleCollection
+        {
+            get
+            {
+                var result = new DoubleCollection(0);
+                result.Freeze();
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Identifies the <see cref="StrokeDashArray"/> dependency property.
+        /// </summary>
+        public static readonly DependencyProperty StrokeDashArrayProperty =
+            DependencyProperty.Register("StrokeDashArray",
+                typeof(DoubleCollection),
+                typeof(LineGraph),
+                new PropertyMetadata(EmptyDoubleCollection, OnStrokeDashArrayChanged));
+
+        private static void OnStrokeDashArrayChanged(object target, DependencyPropertyChangedEventArgs e)
+        {
+            LineGraph lineGraph = (LineGraph)target;
+            lineGraph.polyline.StrokeDashArray = e.NewValue as DoubleCollection;
+        }
+
+        /// <summary>
+        /// Gets or sets a collection of <see cref="Double"/> values that indicate the pattern of dashes and gaps that is used to draw the line.
+        /// </summary>
+        [Category("Appearance")]
+        public DoubleCollection StrokeDashArray
+        {
+            get
+            {
+                return (DoubleCollection)GetValue(StrokeDashArrayProperty);
+            }
+            set
+            {
+                SetValue(StrokeDashArrayProperty, value);
+            }
+        }
+        #endregion
     }
 
     internal class LineGraphThicknessConverter : IValueConverter

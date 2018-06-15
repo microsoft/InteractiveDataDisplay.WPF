@@ -8,7 +8,7 @@
     <!-- Default legend item for LineGraph -->
     <DataTemplate x:Key="InteractiveDataDisplay.WPF.LineGraph">
         <StackPanel Orientation="Horizontal">
-            <Line Width="15" Height="15" X1="0" Y1="0" X2="15" Y2="15" Stroke="{Binding Stroke}" StrokeThickness="{Binding StrokeThickness}"/>
+            <Line Width="15" Height="15" X1="0" Y1="0" X2="15" Y2="15" Stroke="{Binding Stroke}" StrokeThickness="{Binding StrokeThickness}" StrokeDashArray="{Binding StrokeDashArray}"/>
             <TextBlock Margin="5,0,0,0" Text="{Binding Path=Description}"/>
         </StackPanel>
     </DataTemplate>
