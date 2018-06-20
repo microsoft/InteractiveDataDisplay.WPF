@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteractiveDataDisplay.WPF", "..\src\InteractiveDataDisplay.WPF.csproj", "{2D34544C-2DF2-4B20-A43A-6C8D2DF3DD82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InteractiveDataDisplay.WPF", "..\src\InteractiveDataDisplay.WPF.csproj", "{2D34544C-2DF2-4B20-A43A-6C8D2DF3DD82}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{6E637A98-DA68-40CF-B194-56CEB99A57A0}"
 EndProject
@@ -18,6 +18,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingMapsSample", "..\samples\BingMapsSample\BingMapsSample.csproj", "{C724F25D-6F77-48C0-A791-28E34E6B0F0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncGraphsSample", "..\samples\SyncGraphsSample\SyncGraphsSample.csproj", "{0C4C6C54-F253-4FD2-8B38-75E476882A4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{C60A568B-426B-4987-911F-FDC502F360DC}"
+	ProjectSection(SolutionItems) = preProject
+		..\shared\SharedProjectInfo.props = ..\shared\SharedProjectInfo.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,5 +69,8 @@ Global
 		{F36872BF-8818-4019-A207-2B381C33C370} = {6E637A98-DA68-40CF-B194-56CEB99A57A0}
 		{C724F25D-6F77-48C0-A791-28E34E6B0F0C} = {6E637A98-DA68-40CF-B194-56CEB99A57A0}
 		{0C4C6C54-F253-4FD2-8B38-75E476882A4B} = {6E637A98-DA68-40CF-B194-56CEB99A57A0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F58FE5DC-7761-425A-863A-513867253588}
 	EndGlobalSection
 EndGlobal

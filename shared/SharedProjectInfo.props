@@ -1,0 +1,23 @@
+<Project>
+  <PropertyGroup>
+    <Product>InteractiveDataDisplay.WPF</Product>
+    <Company>Microsoft</Company>
+    <Copyright>Copyright © Microsoft Corporation 2018</Copyright>    
+  </PropertyGroup>
+  <!-- Versions -->
+  <PropertyGroup>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+  </PropertyGroup>
+  <!-- Shared Nuget package specifications -->
+  <PropertyGroup>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <PackageVersion>$(Version)</PackageVersion>
+  </PropertyGroup>
+  <!-- Shared configuration properties -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+</Project>

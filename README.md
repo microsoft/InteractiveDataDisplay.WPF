@@ -7,7 +7,7 @@ How to install
 ----------
 The IDD for WPF can be [installed from NuGet](https://www.nuget.org/packages/InteractiveDataDisplay.WPF/):
 ```
-PM > Install-Package InteractiveDataDisplay.WPF -Version 1.0.0
+PM > Install-Package InteractiveDataDisplay.WPF
 ```
 
 How to use
