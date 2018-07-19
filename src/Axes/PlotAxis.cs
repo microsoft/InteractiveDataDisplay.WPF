@@ -128,6 +128,21 @@ namespace InteractiveDataDisplay.WPF
         public static readonly DependencyProperty AxisOrientationProperty =
             DependencyProperty.Register("AxisOrientation", typeof(AxisOrientation), typeof(PlotAxis), new PropertyMetadata(AxisOrientation.Bottom));
 
+        /// <summary>
+        /// Gets or Sets label format of axis
+        /// </summary>
+        [Category("InteractiveDataDisplay")]
+        [Description("Defines label format of axis")]
+        public ILabelProvider LabelProvider
+        {
+            get { return (ILabelProvider)GetValue(LabelProviderProperty); }
+            set { SetValue(LabelProviderProperty, value); }
+        }
+
+        /// <summary>Identify <see cref="LabelProvider"/> property</summary>
+        public static readonly DependencyProperty LabelProviderProperty =
+            DependencyProperty.Register("LabelProvider", typeof(ILabelProvider), typeof(PlotAxis), new PropertyMetadata(new LabelProvider()));
+
         /// <summary>Gets or sets transform from user data to horizontal plot coordinate. 
         /// By default transform is <see cref="IdentityDataTransform"/>
         /// </summary>

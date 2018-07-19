@@ -15,7 +15,8 @@
                         <d3:Axis x:Name="PART_Axis" 
                                  AxisOrientation="{Binding AxisOrientation, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                  Ticks="{Binding Ticks, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
-                                 Foreground="{Binding Foreground, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                 Foreground="{Binding Foreground, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                 LabelProvider="{Binding LabelProvider, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" />
                         <ContentPresenter/>
                     </Grid>
                 </ControlTemplate>
@@ -51,7 +52,8 @@
                             <d3:PlotAxis x:Name="PART_verticalAxis"
                                          d3:Figure.Placement="Left" 
                                          AxisOrientation="Left"
-                                         Foreground="{TemplateBinding Foreground}">
+                                         Foreground="{TemplateBinding Foreground}"
+                                         LabelProvider="{TemplateBinding YLabelProvider}">
                                 <d3:MouseNavigation IsHorizontalNavigationEnabled="False"/>
                             </d3:PlotAxis>
                             <d3:AxisGrid x:Name="PART_axisGrid"
@@ -76,7 +78,8 @@
                             <d3:PlotAxis x:Name="PART_horizontalAxis"
                                          d3:Figure.Placement="Bottom" 
                                          AxisOrientation="Bottom"
-                                         Foreground="{TemplateBinding Foreground}">
+                                         Foreground="{TemplateBinding Foreground}"
+                                         LabelProvider="{TemplateBinding XLabelProvider}">
                                 <d3:MouseNavigation IsVerticalNavigationEnabled="False"/>
                             </d3:PlotAxis>
                             <ContentPresenter/>
