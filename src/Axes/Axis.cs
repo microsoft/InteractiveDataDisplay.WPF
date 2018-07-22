@@ -169,6 +169,28 @@ namespace InteractiveDataDisplay.WPF
                     }
                 }));
 
+
+        [Description("Label format of Axis")]
+        [Category("InteractiveDataDisplay")]
+        public ILabelProvider LabelProvider
+        {
+            get { return (ILabelProvider)GetValue(LabelProviderProperty); }
+            set { SetValue(LabelProviderProperty, value); }
+        }
+        /// <summary>
+        /// Gets or Sets label format of axis
+        /// </summary>
+        public static readonly DependencyProperty LabelProviderProperty =
+            DependencyProperty.Register("LabelProvider", typeof(ILabelProvider), typeof(Axis), new PropertyMetadata(new LabelProvider(),
+                (o, e) =>
+                {
+                    Axis axis = (Axis)o;
+                    if (axis != null) {
+                        axis.labelProvider = e.NewValue as ILabelProvider;
+                        axis.InvalidateMeasure();
+                    }
+                }));
+
         /// <summary>
         /// Gets or sets the brush for labels and ticks of axis
         /// </summary>

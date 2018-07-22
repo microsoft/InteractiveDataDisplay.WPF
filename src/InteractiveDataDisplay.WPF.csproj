@@ -76,6 +76,7 @@
     <Compile Include="Axes\AxisGrid.cs" />
     <Compile Include="Axes\AxisOrientation.cs" />
     <Compile Include="Axes\ILabelProvider.cs" />
+    <Compile Include="Axes\DateLabelProvider.cs" />
     <Compile Include="Axes\LabelProvider.cs" />
     <Compile Include="Axes\MinorTicksProvider.cs" />
     <Compile Include="Axes\PlotAxis.cs" />

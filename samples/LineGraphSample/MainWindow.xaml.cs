@@ -19,9 +19,13 @@ namespace LineGraphSample
         {
             InitializeComponent();
 
+            var dates = new double[200];
             double[] x = new double[200];
             for (int i = 0; i < x.Length; i++)
+            {
                 x[i] = 3.1415 * i / (x.Length - 1);
+                dates[i] = DateTime.Now.AddDays(i).Ticks;
+            }
 
             for (int i = 0; i < 25; i++)
             {
@@ -30,8 +34,9 @@ namespace LineGraphSample
                 lg.Stroke = new SolidColorBrush(Color.FromArgb(255, 0, (byte)(i * 10), 0));
                 lg.Description = String.Format("Data series {0}", i + 1);
                 lg.StrokeThickness = 2;
-                lg.Plot(x, x.Select(v => Math.Sin(v + i / 10.0)).ToArray());
+                lg.Plot(dates, x.Select(v => Math.Sin(v + i / 10.0)).ToArray());
             }
+            plotter.XLabelProvider = new DateLabelProvider();
         }
     }
 
