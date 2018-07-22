@@ -185,9 +185,9 @@ namespace InteractiveDataDisplay.WPF
                 (o, e) =>
                 {
                     Axis axis = (Axis)o;
-                    if (axis != null)
-                    {
+                    if (axis != null) {
                         axis.labelProvider = e.NewValue as ILabelProvider;
+                        axis.InvalidateMeasure();
                     }
                 }));
 
