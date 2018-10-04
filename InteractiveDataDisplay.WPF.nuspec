@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>InteractiveDataDisplay.WPF</id>
+    <version>1.0.0</version>
+    <title>InteractiveDataDipslay.WPF</title>
+    <authors>Sergey Berezin, Vassily Lyutsarev, Nikita Skoblov, Natalia Stepanova</authors>
+    <owners>Microsoft; MSU ITIS Lab</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/Microsoft/InteractiveDataDisplay.WPF/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Microsoft/InteractiveDataDisplay.WPF</projectUrl>
+    <description>Interactive Data Display for WPF is a set of controls for adding interactive visualization of dynamic data to your application.</description>
+    <summary>Interactive Data Dipslay for WPF allows to create line graphs, bubble charts, heat maps and other complex 2D plots which are very common in scientific software. It integrates well with Bing Maps control to show data on a geographic map in latitude/longitude coordinates. The controls can also be operated programmatically.</summary>
+    <copyright>Copyright 2017 Microsoft Corporation</copyright>
+    <tags>idd wpf visualization plot plots plotting chart charting data interactive datavisualization</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5.2">
+        <dependency id="Microsoft.Maps.MapControl.WPF" version="1.0.0.3" exclude="Build,Analyzers" />
+        <dependency id="System.Reactive" version="3.1.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.6">
+        <dependency id="Microsoft.Maps.MapControl.WPF" version="1.0.0.3" exclude="Build,Analyzers" />
+        <dependency id="System.Reactive" version="4.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.5.2, .NETFramework4.6" />
+      <frameworkAssembly assemblyName="PresentationCore" targetFramework=".NETFramework4.5.2, .NETFramework4.6" />
+      <frameworkAssembly assemblyName="PresentationFramework" targetFramework=".NETFramework4.5.2, .NETFramework4.6" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.5.2, .NETFramework4.6" />
+      <frameworkAssembly assemblyName="System.Data.DataSetExtensions" targetFramework=".NETFramework4.5.2, .NETFramework4.6" />
+      <frameworkAssembly assemblyName="System.Data" targetFramework=".NETFramework4.5.2, .NETFramework4.6" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.5.2, .NETFramework4.6" />
+      <frameworkAssembly assemblyName="System.Net.Http" targetFramework=".NETFramework4.5.2, .NETFramework4.6" />
+      <frameworkAssembly assemblyName="System.Xaml" targetFramework=".NETFramework4.5.2, .NETFramework4.6" />
+      <frameworkAssembly assemblyName="System.Xml" targetFramework=".NETFramework4.5.2, .NETFramework4.6" />
+      <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework=".NETFramework4.5.2, .NETFramework4.6" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="src\bin\Release\**\InteractiveDataDisplay.WPF**" target="lib" />
+  </files>
+</package>
