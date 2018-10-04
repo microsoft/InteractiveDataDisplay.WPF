@@ -16,7 +16,7 @@
     <dependencies>
       <group targetFramework=".NETFramework4.5.2">
         <dependency id="Microsoft.Maps.MapControl.WPF" version="1.0.0.3" exclude="Build,Analyzers" />
-        <dependency id="System.Reactive" version="3.1.1" exclude="Build,Analyzers" />
+        <dependency id="System.Reactive" version="[3.1.1,4.0.0)" exclude="Build,Analyzers" />
       </group>
       <group targetFramework=".NETFramework4.6">
         <dependency id="Microsoft.Maps.MapControl.WPF" version="1.0.0.3" exclude="Build,Analyzers" />
