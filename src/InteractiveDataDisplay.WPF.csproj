@@ -34,6 +34,14 @@
   </PropertyGroup>
   <PropertyGroup>
     <LanguageTargets Condition="Exists('$(MSBuildExtensionsPath)\$(VisualStudioVersion)\Bin\Microsoft.CSharp.targets')">$(MSBuildExtensionsPath)\$(VisualStudioVersion)\Bin\Microsoft.CSharp.targets</LanguageTargets>
+    <Version>1.1.0</Version>
+    <Company>Microsoft; MSU ITIS Lab</Company>
+    <Authors>Sergey Berezin, Vassily Lyutsarev, Nikita Skoblov, Natalia Stepanova</Authors>
+    <Description>Interactive Data Display for WPF is a set of controls for adding interactive visualization of dynamic data to your application.</Description>
+    <Copyright>Copyright 2017 Microsoft Corporation</Copyright>
+    <PackageTags>idd wpf visualization plot plots plotting chart charting data interactive datavisualization</PackageTags>
+    <PackageProjectUrl>https://github.com/Microsoft/InteractiveDataDisplay.WPF</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/Microsoft/InteractiveDataDisplay.WPF/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />

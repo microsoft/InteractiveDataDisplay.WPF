@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>InteractiveDataDisplay.WPF</id>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <title>InteractiveDataDipslay.WPF</title>
     <authors>Sergey Berezin, Vassily Lyutsarev, Nikita Skoblov, Natalia Stepanova</authors>
     <owners>Microsoft; MSU ITIS Lab</owners>
