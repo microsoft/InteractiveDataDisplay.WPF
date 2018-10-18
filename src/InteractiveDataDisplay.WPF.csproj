@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>InteractiveDataDisplay.WPF</RootNamespace>
     <AssemblyName>InteractiveDataDisplay.WPF</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworks>net452;net46</TargetFrameworks>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NETFRAMEWORK;NETFRAMEWORK;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -27,40 +27,27 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;RELEASE;NETFRAMEWORK;;RELEASE;NETFRAMEWORK;RELEASE;NETFRAMEWORK;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <PropertyGroup>
+    <LanguageTargets Condition="Exists('$(MSBuildExtensionsPath)\$(VisualStudioVersion)\Bin\Microsoft.CSharp.targets')">$(MSBuildExtensionsPath)\$(VisualStudioVersion)\Bin\Microsoft.CSharp.targets</LanguageTargets>
+    <Version>1.1.0</Version>
+    <Company>Microsoft; MSU ITIS Lab</Company>
+    <Authors>Sergey Berezin, Vassily Lyutsarev, Nikita Skoblov, Natalia Stepanova</Authors>
+    <Description>Interactive Data Display for WPF is a set of controls for adding interactive visualization of dynamic data to your application.</Description>
+    <Copyright>Copyright 2017 Microsoft Corporation</Copyright>
+    <PackageTags>idd wpf visualization plot plots plotting chart charting data interactive datavisualization</PackageTags>
+    <PackageProjectUrl>https://github.com/Microsoft/InteractiveDataDisplay.WPF</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/Microsoft/InteractiveDataDisplay.WPF/blob/master/LICENSE</PackageLicenseUrl>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Maps.MapControl.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\sln\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Reactive.Core, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
-      <HintPath>..\sln\packages\System.Reactive.Core.3.1.1\lib\net45\System.Reactive.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Reactive.Interfaces, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
-      <HintPath>..\sln\packages\System.Reactive.Interfaces.3.1.1\lib\net45\System.Reactive.Interfaces.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Reactive.Linq, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
-      <HintPath>..\sln\packages\System.Reactive.Linq.3.1.1\lib\net45\System.Reactive.Linq.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Reactive.PlatformServices, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
-      <HintPath>..\sln\packages\System.Reactive.PlatformServices.3.1.1\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
-      <HintPath>..\sln\packages\System.Reactive.Windows.Threading.3.1.1\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -70,71 +57,18 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+    <!-- XAML elements -->
+    <!-- Workaround to make xamls appear in the VS solution explorer -->
+    <None Include="**\*.xaml" />
+    <Page Include="**\*.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Update="**\*.xaml.cs" SubType="Code" DependentUpon="%(Filename)" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Axes\Axis.cs" />
-    <Compile Include="Axes\AxisGrid.cs" />
-    <Compile Include="Axes\AxisOrientation.cs" />
-    <Compile Include="Axes\ILabelProvider.cs" />
-    <Compile Include="Axes\LabelProvider.cs" />
-    <Compile Include="Axes\MinorTicksProvider.cs" />
-    <Compile Include="Axes\PlotAxis.cs" />
-    <Compile Include="Axes\RoundHelper.cs" />
-    <Compile Include="Axes\TicksProvider.cs" />
-    <Compile Include="Chart.cs" />
-    <Compile Include="Common\ArrayHelper.cs" />
-    <Compile Include="Common\DataRect.cs" />
-    <Compile Include="Common\IPalette.cs" />
-    <Compile Include="Common\MathHelper.cs" />
-    <Compile Include="Common\Palette.cs" />
-    <Compile Include="Common\Range.cs" />
-    <Compile Include="Figure.cs" />
-    <Compile Include="Legend\CountToVisibilityConverter.cs" />
-    <Compile Include="Legend\Legend.cs" />
-    <Compile Include="Legend\LegendItemsPanel.cs" />
-    <Compile Include="Legend\SizeLegendControl.cs" />
-    <Compile Include="Navigation\KeyboardNavigation.cs" />
-    <Compile Include="Navigation\MouseNavigation.cs" />
-    <Compile Include="Palette\Palette.Converters.cs" />
-    <Compile Include="Palette\PaletteControl.cs" />
-    <Compile Include="PlotBase.cs" />
-    <Compile Include="PlotCompositionChange.cs" />
-    <Compile Include="Plots\Base\BackgroundBitmapRenderer.cs" />
-    <Compile Include="Plots\Base\Plot.cs" />
-    <Compile Include="Plots\BingMaps\BingMapsChart.cs" />
-    <Compile Include="Plots\Heatmap\HeatmapBuilder.cs" />
-    <Compile Include="Plots\Heatmap\HeatmapGraph.cs" />
-    <Compile Include="Plots\Heatmap\HeatmapTooltipLayer.cs" />
-    <Compile Include="Plots\Line\LineGraph.cs" />
-    <Compile Include="Plots\Markers\CartesianMarkerGraph.cs" />
-    <Compile Include="Plots\Markers\DataSeries.cs" />
-    <Compile Include="Plots\Markers\DynamicMarkerViewModel.cs" />
-    <Compile Include="Plots\Markers\GenericDataSeries.cs" />
-    <Compile Include="Plots\Markers\MarkerGraph.Converters.cs" />
-    <Compile Include="Plots\Markers\MarkerGraph.cs" />
-    <Compile Include="Plots\Markers\MarkerGraphsWithTemplates.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transforms\DataTransforms.cs" />
-    <Compile Include="VerticalContentControl.cs" />
+    <PackageReference Include="Microsoft.Maps.MapControl.WPF" Version="1.0.0.3" />
+    <PackageReference Include="System.Reactive" Version="3.1.1" Condition=" '$(TargetFramework)' == 'net452' " />
+    <PackageReference Include="System.Reactive" Version="4.0.0" Condition=" '$(TargetFramework)' == 'net46' " />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Legend\DefaultTemplates.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Plots\Markers\MarkerTemplates.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
