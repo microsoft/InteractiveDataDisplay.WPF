@@ -12,7 +12,7 @@
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot" Background="White">
-        <d3:Chart Name="plotter">
+        <d3:Chart Name="plotter" IsXAxisReversed="True">
             <d3:Chart.Title>
                 <TextBlock HorizontalAlignment="Center" FontSize="18" Margin="0,5,0,5">Line graph legend sample</TextBlock>
             </d3:Chart.Title>
