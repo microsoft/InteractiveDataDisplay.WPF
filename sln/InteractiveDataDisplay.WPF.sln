@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteractiveDataDisplay.WPF", "..\src\InteractiveDataDisplay.WPF.csproj", "{9E11FAD5-9967-4917-BFDB-436CAAC53B4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarChartSample", "..\samples\BarChartSample\BarChartSample.csproj", "{E489642B-F6D5-449E-8BEF-67E1D376D323}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,17 @@ Global
 		{9E11FAD5-9967-4917-BFDB-436CAAC53B4C}.Release|x64.Build.0 = Release|Any CPU
 		{9E11FAD5-9967-4917-BFDB-436CAAC53B4C}.Release|x86.ActiveCfg = Release|Any CPU
 		{9E11FAD5-9967-4917-BFDB-436CAAC53B4C}.Release|x86.Build.0 = Release|Any CPU
+		{E489642B-F6D5-449E-8BEF-67E1D376D323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E489642B-F6D5-449E-8BEF-67E1D376D323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E489642B-F6D5-449E-8BEF-67E1D376D323}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E489642B-F6D5-449E-8BEF-67E1D376D323}.Debug|x64.Build.0 = Debug|Any CPU
+		{E489642B-F6D5-449E-8BEF-67E1D376D323}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E489642B-F6D5-449E-8BEF-67E1D376D323}.Debug|x86.Build.0 = Debug|Any CPU
+		{E489642B-F6D5-449E-8BEF-67E1D376D323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E489642B-F6D5-449E-8BEF-67E1D376D323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E489642B-F6D5-449E-8BEF-67E1D376D323}.Release|x64.ActiveCfg = Release|Any CPU
+		{E489642B-F6D5-449E-8BEF-67E1D376D323}.Release|x64.Build.0 = Release|Any CPU
+		{E489642B-F6D5-449E-8BEF-67E1D376D323}.Release|x86.ActiveCfg = Release|Any CPU
+		{E489642B-F6D5-449E-8BEF-67E1D376D323}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
