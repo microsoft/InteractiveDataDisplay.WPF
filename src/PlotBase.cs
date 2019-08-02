@@ -273,7 +273,7 @@ namespace InteractiveDataDisplay.WPF
             {
                 dependantsField.Add(dependant);
                 EnumAll(plot => plot.NotifyCompositionChange());
-          }
+            }
         }
 
         private void RemoveDependant(PlotBase dependant)
@@ -335,7 +335,7 @@ namespace InteractiveDataDisplay.WPF
         {
             if (masterField != this)
             {
-                if(masterField != null)
+                if (masterField != null)
                     masterField.EnumAll(action);
             }
             else
@@ -467,7 +467,7 @@ namespace InteractiveDataDisplay.WPF
                         if (!plotBase.IsMaster)
                         {
                             plotBase.masterField.InvalidateMeasure();
-                        } 
+                        }
                         else
                             plotBase.InvalidateMeasure();
                     }
@@ -562,14 +562,14 @@ namespace InteractiveDataDisplay.WPF
                 }));
 
         /// <summary>Enables or disables clipping of graphic elements that are outside plotting area</summary>
-        public bool ClipToBounds
+        new public bool ClipToBounds
         {
             get { return (bool)GetValue(ClipToBoundsProperty); }
             set { SetValue(ClipToBoundsProperty, value); }
         }
 
         /// <summary>Identifies <see cref="ClipToBounds"/> dependency property</summary>
-        public static readonly DependencyProperty ClipToBoundsProperty =
+        new public static readonly DependencyProperty ClipToBoundsProperty =
             DependencyProperty.Register("ClipToBounds", typeof(bool), typeof(PlotBase), new PropertyMetadata(true,
                 (s, a) => ((PlotBase)s).OnClipToBoundsChanged(a)));
 
@@ -579,7 +579,7 @@ namespace InteractiveDataDisplay.WPF
         /// <param name="args">PropertyChanged parameters</param>
         protected virtual void OnClipToBoundsChanged(DependencyPropertyChangedEventArgs args)
         {
-            InvalidateMeasure(); 
+            InvalidateMeasure();
         }
 
         #endregion
@@ -594,14 +594,14 @@ namespace InteractiveDataDisplay.WPF
             if (!IsInternalChange)
             {
                 IsInternalChange = true;
-                EnumAll(p => 
-                { 
+                EnumAll(p =>
+                {
                     p.PlotOriginX = (double)e.NewValue;
                     p.IsAutoFitEnabled = false;
                     p.InvalidateMeasure();
                 });
                 IsInternalChange = false;
-            }  
+            }
         }
 
         /// <summary>
@@ -637,7 +637,7 @@ namespace InteractiveDataDisplay.WPF
                     p.InvalidateMeasure();
                 });
                 IsInternalChange = false;
-            } 
+            }
         }
 
         /// <summary>
@@ -655,7 +655,7 @@ namespace InteractiveDataDisplay.WPF
                     p.InvalidateMeasure();
                 });
                 IsInternalChange = false;
-            } 
+            }
         }
 
         /// <summary>
@@ -827,7 +827,7 @@ namespace InteractiveDataDisplay.WPF
                     p.InvalidateMeasure();
                 }
             });
-                 
+
             IsInternalChange = false;
         }
 
@@ -921,7 +921,7 @@ namespace InteractiveDataDisplay.WPF
             if (double.IsNaN(availableSize.Width)
                 || double.IsNaN(availableSize.Height)
                 || double.IsInfinity(availableSize.Width)
-                || double.IsInfinity(availableSize.Height)) 
+                || double.IsInfinity(availableSize.Height))
                 availableSize = new Size(100, 100);
             if (IsMaster)
             {
