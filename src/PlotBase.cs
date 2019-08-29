@@ -31,6 +31,24 @@ namespace InteractiveDataDisplay.WPF
 
         #region Properties
 
+        /// <summary>
+        /// Desired Left plot bound.
+        /// </summary>
+        [Category("InteractiveDataDisplay")]
+        public double? LeftBound {
+            get { return (double?)GetValue(LeftBoundProperty); }
+            set { SetValue(LeftBoundProperty, value); }
+        }
+
+        /// <summary>
+        /// Desired Right plot bound.
+        /// </summary>
+        [Category("InteractiveDataDisplay")]
+        public double? RightBound {
+            get { return (double?)GetValue(RightBoundProperty); }
+            set { SetValue(RightBoundProperty, value); }
+        }
+
         /// <summary>Gets or sets padding - distance in screen units from each side of border to edges of plot bounding rectangle. 
         /// Effective padding for composition of plots is computed as maximum of all paddings.</summary>
         [Category("InteractiveDataDisplay")]
@@ -424,6 +442,18 @@ namespace InteractiveDataDisplay.WPF
         #endregion
 
         #region Dependency Properties
+
+        /// <summary>
+        /// Identifies <see cref="LeftBound"/> dependency property
+        /// </summary>
+        public static readonly DependencyProperty LeftBoundProperty =
+            DependencyProperty.Register("LeftBound", typeof(double?), typeof(PlotBase), new PropertyMetadata(null));
+
+        /// <summary>
+        /// Identifies <see cref="RightBound"/> dependency property
+        /// </summary>
+        public static readonly DependencyProperty RightBoundProperty =
+            DependencyProperty.Register("RightBound", typeof(double?), typeof(PlotBase), new PropertyMetadata(null));
 
         /// <summary>
         /// Identifies <see cref=" XDataTransform"/> dependency property

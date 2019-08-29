@@ -23,6 +23,9 @@ namespace LineGraphSample
             for (int i = 0; i < x.Length; i++)
                 x[i] = 3.1415 * i / (x.Length - 1);
 
+            plotter.LeftBound = x[x.Length / 10];
+            plotter.RightBound = x[x.Length - x.Length / 10];
+
             for (int i = 0; i < 25; i++)
             {
                 var lg = new LineGraph();

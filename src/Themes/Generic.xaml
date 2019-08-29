@@ -35,6 +35,8 @@
                                    PlotWidth="{Binding PlotWidth, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                    PlotOriginX="{Binding PlotOriginX, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                    PlotOriginY="{Binding PlotOriginY, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                   LeftBound="{Binding LeftBound, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                   RightBound="{Binding RightBound, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                    IsXAxisReversed = "{Binding IsXAxisReversed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                    IsYAxisReversed = "{Binding IsXAxisReversed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                    IsAutoFitEnabled="{Binding IsAutoFitEnabled, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
