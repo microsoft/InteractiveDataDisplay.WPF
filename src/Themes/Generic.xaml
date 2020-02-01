@@ -41,7 +41,8 @@
                                    IsAutoFitEnabled="{Binding IsAutoFitEnabled, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                    AspectRatio="{Binding AspectRatio, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                    ExtraPadding="{TemplateBinding BorderThickness}"
-                                   Background="{TemplateBinding Background}">
+                                   Background="{TemplateBinding Background}"
+                                   Padding="{TemplateBinding Padding}">
                             <d3:MouseNavigation IsVerticalNavigationEnabled="{TemplateBinding IsVerticalNavigationEnabled}"
                                                 IsHorizontalNavigationEnabled="{TemplateBinding IsHorizontalNavigationEnabled}"
                                                 x:Name="PART_mouseNavigation"/>
@@ -53,7 +54,7 @@
                                                        VerticalAlignment="Center"
                                                        IsTabStop="False"/>
                             <d3:PlotAxis x:Name="PART_verticalAxis"
-                                         d3:Figure.Placement="Left" 
+                                         d3:Figure.Placement="Left"
                                          AxisOrientation="Left"
                                          IsReversed = "{Binding IsYAxisReversed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                          Foreground="{TemplateBinding Foreground}">
