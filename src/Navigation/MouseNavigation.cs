@@ -416,7 +416,7 @@ namespace InteractiveDataDisplay.WPF
                         else
                         {
                             DateTime d = DateTime.Now;
-                            if ((d - lastClick).TotalMilliseconds < 200)
+                            if ((d - lastClick).TotalMilliseconds < 200 && IsVerticalNavigationEnabled && IsHorizontalNavigationEnabled)
                             {
                                 masterPlot.IsAutoFitEnabled = true;
                                 return true;
