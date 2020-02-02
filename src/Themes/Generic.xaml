@@ -88,7 +88,7 @@
                                          Foreground="{TemplateBinding Foreground}">
                                 <d3:MouseNavigation IsVerticalNavigationEnabled="False" IsHorizontalNavigationEnabled="{TemplateBinding IsHorizontalNavigationEnabled}"/>
                             </d3:PlotAxis>
-                            <ContentPresenter Content="{Binding FigureContent}"/>
+                            <ContentPresenter/>
                             <Border BorderThickness="{TemplateBinding BorderThickness}"
                                     BorderBrush="{TemplateBinding Foreground}" d3:Figure.Placement="Center"/>
                             <d3:Legend x:Name="PART_legend" 
