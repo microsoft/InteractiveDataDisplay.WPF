@@ -52,7 +52,7 @@ namespace InteractiveDataDisplay.WPF
         /// Identifies the <see cref="Stroke"/> dependency property
         /// </summary>
         public static readonly DependencyProperty StrokeProperty =
-            DependencyProperty.Register("Stroke", typeof(SolidColorBrush), typeof(AxisGrid), new PropertyMetadata(new SolidColorBrush(Colors.LightGray),
+            DependencyProperty.Register("Stroke", typeof(Brush), typeof(AxisGrid), new PropertyMetadata(new SolidColorBrush(Colors.LightGray),
                 (o, e) =>
                 {
                     AxisGrid axisGrid = (AxisGrid)o;
@@ -120,9 +120,9 @@ namespace InteractiveDataDisplay.WPF
         /// Gets or sets the Brush that specifies how the horizontal and vertical lines is painted
         /// </summary>
         [Category("Appearance")]
-        public SolidColorBrush Stroke
+        public Brush Stroke
         {
-            get { return (SolidColorBrush)GetValue(StrokeProperty); }
+            get { return (Brush)GetValue(StrokeProperty); }
             set { SetValue(StrokeProperty, value); }
         }
 
