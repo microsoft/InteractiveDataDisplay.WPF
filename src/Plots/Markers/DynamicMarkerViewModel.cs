@@ -61,7 +61,7 @@ namespace InteractiveDataDisplay.WPF
             if (mb == null)
             {
                 AssemblyName aName = new AssemblyName("InteractiveDataDisplayAssembly2");
-                AssemblyBuilder ab = AppDomain.CurrentDomain.DefineDynamicAssembly(aName, AssemblyBuilderAccess.Run);
+                AssemblyBuilder ab = AssemblyBuilder.DefineDynamicAssembly(aName, AssemblyBuilderAccess.Run);
                 mb = ab.DefineDynamicModule(aName.Name);
             }
             TypeBuilder tb = mb.DefineType("DynamicMarkerViewModel_" + (typeModelCount++).ToString(CultureInfo.InvariantCulture),
@@ -115,7 +115,7 @@ namespace InteractiveDataDisplay.WPF
             if (mb == null)
             {
                 AssemblyName aName = new AssemblyName("InteractiveDataDisplayAssembly1");
-                AssemblyBuilder ab = AppDomain.CurrentDomain.DefineDynamicAssembly(aName, AssemblyBuilderAccess.Run);
+                AssemblyBuilder ab = AssemblyBuilder.DefineDynamicAssembly(aName, AssemblyBuilderAccess.Run);
                 mb = ab.DefineDynamicModule(aName.Name);
             }
 

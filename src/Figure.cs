@@ -127,8 +127,12 @@ namespace InteractiveDataDisplay.WPF
             if (IsAutoFitEnabled)
             {
                 desiredRect = AggregateBounds();
-                if (desiredRect.IsEmpty)
+                if(desiredRect.IsEmpty)
                     desiredRect = new DataRect(0, 0, 1, 1);
+                else {
+                    if(LeftBound != null && RightBound != null)
+                        desiredRect.X = new Range(LeftBound.Value, RightBound.Value);
+                }
                 SetPlotRect(desiredRect, true);
             }
             else // resize

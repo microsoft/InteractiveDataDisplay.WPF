@@ -68,6 +68,36 @@ namespace InteractiveDataDisplay.WPF
         }
 
         /// <summary>
+        /// Gets or sets Left plot bound.
+        /// </summary>
+        [Category("InteractiveDataDisplay")]
+        public double? LeftBound {
+            get { return (double?)GetValue(LeftBoundProperty); }
+            set { SetValue(LeftBoundProperty, value); }
+        }
+
+        /// <summary>
+        /// Identifies <see cref="LeftBound"/> dependency property
+        /// </summary>
+        public static readonly DependencyProperty LeftBoundProperty =
+            DependencyProperty.Register("LeftBound", typeof(double?), typeof(Chart), new PropertyMetadata(null));
+
+        /// <summary>
+        /// Identifies <see cref="RightBound"/> dependency property
+        /// </summary>
+        public static readonly DependencyProperty RightBoundProperty =
+            DependencyProperty.Register("RightBound", typeof(double?), typeof(Chart), new PropertyMetadata(null));
+
+        /// <summary>
+        /// Gets or sets Right plot bound.
+        /// </summary>
+        [Category("InteractiveDataDisplay")]
+        public double? RightBound {
+            get { return (double?)GetValue(RightBoundProperty); }
+            set { SetValue(RightBoundProperty, value); }
+        }
+
+        /// <summary>
         /// Gets or sets legend content
         /// </summary>
         [Category("InteractiveDataDisplay")]

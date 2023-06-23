@@ -87,14 +87,14 @@ namespace InteractiveDataDisplay.WPF
         /// <summary>
         /// Identifies <see cref="IsXAxisReversed"/> dependency property
         /// </summary>
-        public static readonly DependencyProperty IsXAxisReversedProperty =
+        new public static readonly DependencyProperty IsXAxisReversedProperty =
             DependencyProperty.Register("IsXAxisReversed", typeof(bool), typeof(AxisGrid), new PropertyMetadata(false));
 
         /// <summary>
         /// Gets or sets a flag indicating whether the x-axis is reversed or not.
         /// </summary>
         [Category("InteractiveDataDisplay")]
-        public bool IsXAxisReversed
+        new public bool IsXAxisReversed
         {
             get { return (bool)GetValue(IsXAxisReversedProperty); }
             set { SetValue(IsXAxisReversedProperty, value); }
@@ -103,14 +103,14 @@ namespace InteractiveDataDisplay.WPF
         /// <summary>
         /// Identifies <see cref="IsYAxisReversed"/> dependency property
         /// </summary>
-        public static readonly DependencyProperty IsYAxisReversedProperty =
+        new public static readonly DependencyProperty IsYAxisReversedProperty =
             DependencyProperty.Register("IsYAxisReversed", typeof(bool), typeof(AxisGrid), new PropertyMetadata(false));
 
         /// <summary>
         /// Gets or sets a flag indicating whether the y-axis is reversed or not.
         /// </summary>
         [Category("InteractiveDataDisplay")]
-        public bool IsYAxisReversed
+        new public bool IsYAxisReversed
         {
             get { return (bool)GetValue(IsYAxisReversedProperty); }
             set { SetValue(IsYAxisReversedProperty, value); }
@@ -152,7 +152,7 @@ namespace InteractiveDataDisplay.WPF
             if (Double.IsInfinity(availableSize.Height))
                 availableSize.Height = 1024;
 
-            
+
             GeometryGroup group = new GeometryGroup();
 
             double[] hTicks = HorizontalTicks.ToArray();
@@ -224,7 +224,7 @@ namespace InteractiveDataDisplay.WPF
 
         private double GetVerticalCoordinateFromTick(double tick, double screenSize, Range range)
         {
-            return  screenSize - ValueToScreen(YDataTransform.DataToPlot(tick), screenSize, range, IsYAxisReversed);
+            return screenSize - ValueToScreen(YDataTransform.DataToPlot(tick), screenSize, range, IsYAxisReversed);
         }
 
 

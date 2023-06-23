@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Microsoft Corporation. All Rights Reserved.
 // Licensed under the MIT License.
+#if NETFRAMEWORK
 
 using System;
 using System.Windows;
@@ -107,3 +108,4 @@ namespace InteractiveDataDisplay.WPF
     }  
 }
 
+#endif
