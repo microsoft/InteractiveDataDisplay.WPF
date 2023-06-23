@@ -101,12 +101,13 @@ namespace InteractiveDataDisplay.WPF
         /// <returns>Padding with maximum values for each side from padding of all children</returns>
         protected override Thickness AggregatePadding()
         {
-            var ep = base.AggregatePadding();
-            return new Thickness(
-                ep.Left + ExtraPadding.Left, 
-                ep.Top + ExtraPadding.Top, 
-                ep.Right + ExtraPadding.Right,
-                ep.Bottom + ExtraPadding.Bottom);
+            return ExtraPadding;
+        }
+
+        // Helper function to add up the left and right size as width, as well as the top and bottom size as height
+        private static Size HelperCollapseThickness(Thickness th)
+        {
+            return new Size(th.Left + th.Right, th.Top + th.Bottom);
         }
 
         /// <summary>
@@ -138,9 +139,18 @@ namespace InteractiveDataDisplay.WPF
             //then meassuring left and right with top and bottom output values
 
             // Create transform for first iteration
+
+            //Handle Padding
+            Thickness _padding = ComputePadding();
+            Size padding = HelperCollapseThickness(_padding);
+
             if (double.IsNaN(availableSize.Width) || double.IsNaN(availableSize.Height) ||
                 double.IsInfinity(availableSize.Width) || double.IsInfinity(availableSize.Height))
-                availableSize = new Size(100, 100);
+                availableSize = new Size(Math.Max(0.0, 100 - padding.Width),
+                                         Math.Max(0.0, 100 - padding.Height));
+            else
+                availableSize = new Size(Math.Max(0.0, availableSize.Width - padding.Width),
+                                         Math.Max(0.0, availableSize.Height - padding.Height));
 
             Fit(desiredRect, availableSize);
 
@@ -290,7 +300,8 @@ namespace InteractiveDataDisplay.WPF
             }
 
             centerSize = availCenterSize;
-            return new Size(availCenterSize.Width + leftRightWidth, availCenterSize.Height + topBottomHeight);
+
+            return new Size(availCenterSize.Width + leftRightWidth + padding.Width, availCenterSize.Height + topBottomHeight + padding.Height);
         }
 
         /// <summary>
@@ -308,58 +319,64 @@ namespace InteractiveDataDisplay.WPF
 
             double x = 0, y = 0;
 
+            //Handle Padding
+            Thickness _padding = ComputePadding();
+            Size padding = HelperCollapseThickness(_padding);
+
             //Arranging top elements and setting clip bounds
             if (topHeight < topHeight2)
             {
+                y += _padding.Top;
                 foreach (var elt in topElts)
                 {
                     double finalHeight = elt.DesiredSize.Height * topHeight / topHeight2;
-                    elt.Arrange(new Rect(leftWidth, y, centerSize.Width, finalHeight));
-                    elt.Clip = new RectangleGeometry { Rect = new Rect(-leftWidth, 0, finalSize.Width, finalHeight) };
+                    elt.Arrange(new Rect(leftWidth + _padding.Left, y, centerSize.Width, finalHeight));
+                    elt.Clip = new RectangleGeometry { Rect = new Rect(-leftWidth - _padding.Left, 0, finalSize.Width, finalHeight) };
                     y += finalHeight;
                 }
             }
             else
             {
-                double iy = topHeight;
+                double iy = topHeight + _padding.Top;
                 for (int i = topElts.Length - 1; i > -1; i--)
                 {
                     UIElement elt = topElts[i];
-                    elt.Arrange(new Rect(leftWidth, iy - elt.DesiredSize.Height, centerSize.Width, elt.DesiredSize.Height));
-                    elt.Clip = new RectangleGeometry { Rect = new Rect(-leftWidth, 0, finalSize.Width, elt.DesiredSize.Height) };
+                    elt.Arrange(new Rect(leftWidth + _padding.Left, iy - elt.DesiredSize.Height, centerSize.Width, elt.DesiredSize.Height));
+                    elt.Clip = new RectangleGeometry { Rect = new Rect(-leftWidth - _padding.Left, 0, finalSize.Width, elt.DesiredSize.Height) };
                     iy -= elt.DesiredSize.Height;
                 }
-                y = topHeight;
+                y = topHeight + _padding.Top;
             }
 
             // Arranging left elements and setting clip bounds
             if (leftWidth < leftWidth2)
             {
+                x += _padding.Left;
                 foreach (var elt in leftElts)
                 {
                     double finalWidth = elt.DesiredSize.Width * leftWidth / leftWidth2;
-                    elt.Arrange(new Rect(x, topHeight, finalWidth, centerSize.Height));
-                    elt.Clip = new RectangleGeometry { Rect = new Rect(0, -topHeight, finalWidth, finalSize.Height) };
+                    elt.Arrange(new Rect(x, topHeight + _padding.Top, finalWidth, centerSize.Height));
+                    elt.Clip = new RectangleGeometry { Rect = new Rect(0, -topHeight - _padding.Top, finalWidth, finalSize.Height) };
                     x += finalWidth;
                 }
             }
             else
             {
-                double ix = leftWidth;
+                double ix = leftWidth + _padding.Left;
                 for (int i = leftElts.Length - 1; i > -1; i--)
                 {
                     UIElement elt = leftElts[i];
-                    elt.Arrange(new Rect(ix - elt.DesiredSize.Width, topHeight, elt.DesiredSize.Width, centerSize.Height));
-                    elt.Clip = new RectangleGeometry { Rect = new Rect(0, -topHeight, elt.DesiredSize.Width, finalSize.Height) };
+                    elt.Arrange(new Rect(ix - elt.DesiredSize.Width, topHeight + _padding.Top, elt.DesiredSize.Width, centerSize.Height));
+                    elt.Clip = new RectangleGeometry { Rect = new Rect(0, -topHeight - _padding.Top, elt.DesiredSize.Width, finalSize.Height) };
                     ix -= elt.DesiredSize.Width;
                 }
-                x = leftWidth;
+                x = leftWidth + _padding.Left;
             }
 
             // Arranging center elements
             foreach (var elt in centerElts)
             {
-                elt.Arrange(new Rect(leftWidth, topHeight, centerSize.Width, centerSize.Height));
+                elt.Arrange(new Rect(leftWidth + _padding.Left, topHeight + _padding.Top, centerSize.Width, centerSize.Height));
             }
 
             x += centerSize.Width;
@@ -371,20 +388,22 @@ namespace InteractiveDataDisplay.WPF
                 foreach (var elt in bottomElts)
                 {
                     double finalHeight = elt.DesiredSize.Height * bottomHeight / bottomHeight2;
-                    elt.Arrange(new Rect(leftWidth, y, centerSize.Width, finalHeight));
-                    elt.Clip = new RectangleGeometry { Rect = new Rect(-leftWidth, 0, finalSize.Width, finalHeight) };
+                    elt.Arrange(new Rect(leftWidth + _padding.Left, y, centerSize.Width, finalHeight));
+                    elt.Clip = new RectangleGeometry { Rect = new Rect(-leftWidth - _padding.Left, 0, finalSize.Width, finalHeight) };
                     y += finalHeight;
                 }
+                y += _padding.Bottom;
             }
             else
             {
                 for (int i = bottomElts.Length - 1; i > -1; i--)
                 {
                     UIElement elt = bottomElts[i];
-                    elt.Arrange(new Rect(leftWidth, y, centerSize.Width, elt.DesiredSize.Height));
-                    elt.Clip = new RectangleGeometry { Rect = new Rect(-leftWidth, 0, finalSize.Width, elt.DesiredSize.Height) };
+                    elt.Arrange(new Rect(leftWidth + _padding.Left, y, centerSize.Width, elt.DesiredSize.Height));
+                    elt.Clip = new RectangleGeometry { Rect = new Rect(-leftWidth - _padding.Left, 0, finalSize.Width, elt.DesiredSize.Height) };
                     y += elt.DesiredSize.Height;
                 }
+                y += _padding.Bottom;
             }
 
             // Arranging right elements and setting clip bounds
@@ -393,20 +412,22 @@ namespace InteractiveDataDisplay.WPF
                 foreach (var elt in rightElts)
                 {
                     double finalWidth = elt.DesiredSize.Width * rightWidth / rightWidth2;
-                    elt.Arrange(new Rect(x, topHeight, finalWidth, centerSize.Height));
-                    elt.Clip = new RectangleGeometry { Rect = new Rect(0, -topHeight, finalWidth, finalSize.Height) };
+                    elt.Arrange(new Rect(x, topHeight + _padding.Top, finalWidth, centerSize.Height));
+                    elt.Clip = new RectangleGeometry { Rect = new Rect(0, -topHeight - _padding.Top, finalWidth, finalSize.Height) };
                     x += finalWidth;
                 }
+                x += _padding.Right;
             }
             else
             {
                 for (int i = rightElts.Length - 1; i > -1; i--)
                 {
                     UIElement elt = rightElts[i];
-                    elt.Arrange(new Rect(x, topHeight, elt.DesiredSize.Width, centerSize.Height));
-                    elt.Clip = new RectangleGeometry { Rect = new Rect(0, -topHeight, elt.DesiredSize.Width, finalSize.Height) };
+                    elt.Arrange(new Rect(x, topHeight + _padding.Top, elt.DesiredSize.Width, centerSize.Height));
+                    elt.Clip = new RectangleGeometry { Rect = new Rect(0, -topHeight - _padding.Top, elt.DesiredSize.Width, finalSize.Height) };
                     x += elt.DesiredSize.Width;
                 }
+                x += _padding.Right;
             }
 
             return new Size(x, y);

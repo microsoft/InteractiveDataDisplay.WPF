@@ -30,7 +30,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="d3:Chart">
                     <Grid>
-                        <d3:Figure x:Name="PART_figure" Margin="1"
+                        <d3:Figure x:Name="PART_figure"
+                                   Margin="1"
                                    PlotHeight="{Binding PlotHeight, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                    PlotWidth="{Binding PlotWidth, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                    PlotOriginX="{Binding PlotOriginX, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
@@ -40,7 +41,8 @@
                                    IsAutoFitEnabled="{Binding IsAutoFitEnabled, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                    AspectRatio="{Binding AspectRatio, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                    ExtraPadding="{TemplateBinding BorderThickness}"
-                                   Background="{TemplateBinding Background}">
+                                   Background="{TemplateBinding Background}"
+                                   Padding="{TemplateBinding Padding}">
                             <d3:MouseNavigation IsVerticalNavigationEnabled="{TemplateBinding IsVerticalNavigationEnabled}"
                                                 IsHorizontalNavigationEnabled="{TemplateBinding IsHorizontalNavigationEnabled}"
                                                 x:Name="PART_mouseNavigation"/>
@@ -52,11 +54,11 @@
                                                        VerticalAlignment="Center"
                                                        IsTabStop="False"/>
                             <d3:PlotAxis x:Name="PART_verticalAxis"
-                                         d3:Figure.Placement="Left" 
+                                         d3:Figure.Placement="Left"
                                          AxisOrientation="Left"
                                          IsReversed = "{Binding IsYAxisReversed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                          Foreground="{TemplateBinding Foreground}">
-                                <d3:MouseNavigation IsHorizontalNavigationEnabled="False"/>
+                                <d3:MouseNavigation IsHorizontalNavigationEnabled="False" IsVerticalNavigationEnabled="{TemplateBinding IsVerticalNavigationEnabled}"/>
                             </d3:PlotAxis>
                             <d3:AxisGrid x:Name="PART_axisGrid"
                                          VerticalTicks="{Binding Ticks,ElementName=PART_verticalAxis, Mode=OneWay}"
@@ -84,7 +86,7 @@
                                          AxisOrientation="Bottom"
                                          IsReversed = "{Binding IsXAxisReversed, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                          Foreground="{TemplateBinding Foreground}">
-                                <d3:MouseNavigation IsVerticalNavigationEnabled="False"/>
+                                <d3:MouseNavigation IsVerticalNavigationEnabled="False" IsHorizontalNavigationEnabled="{TemplateBinding IsHorizontalNavigationEnabled}"/>
                             </d3:PlotAxis>
                             <ContentPresenter/>
                             <Border BorderThickness="{TemplateBinding BorderThickness}"
