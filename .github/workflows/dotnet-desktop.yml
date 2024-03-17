@@ -56,8 +56,8 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      Solution_Name: sln/InteractiveDataDisplay.WPF.sln
-      Test_Project_Path: src/InteractiveDataDisplay.WPF.csproj
+      Solution_Name: InteractiveDataDisplay.WPF.sln
+      Test_Project_Path: InteractiveDataDisplay.WPF.csproj
       
 
     steps:
